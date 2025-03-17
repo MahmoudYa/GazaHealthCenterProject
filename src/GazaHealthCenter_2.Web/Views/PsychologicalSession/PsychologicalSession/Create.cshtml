@@ -1,0 +1,26 @@
+@model GazaHealthCenter_2.Objects.Models.PsychologicalSession.PsychologicalSessionModel
+
+<div class="container mt-5">
+    <h2 class="mb-4">Create Psychological Session</h2>
+
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            <label for="PsychologistName" class="form-label">Psychologist Name</label>
+            <input type="text" class="form-control" id="PsychologistName" name="PsychologistName" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="SessionDate" class="form-label">Session Date</label>
+            <input type="datetime-local" class="form-control" id="SessionDate" name="SessionDate" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="Notes" class="form-label">Notes</label>
+            <textarea class="form-control" id="Notes" name="Notes" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Create Session</button>
+    </form>
+</div>

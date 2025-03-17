@@ -1,0 +1,30 @@
+@using GazaHealthCenter_2.Objects.Models.Consultation
+@model DepartmentModel
+
+<div class="container mt-4">
+    <h2 class="mb-4">Add New Department</h2>
+
+    <div class="card shadow p-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label">Department Name</label>
+                <input type="text" asp-for="Name" class="form-control" placeholder="Enter department name" required />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea asp-for="Description" class="form-control" placeholder="Enter department description" required></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Upload Department Image</label>
+                <input type="file" name="ImageFile" class="form-control" accept="image/*" />
+            </div>
+
+            <button type="submit" class="btn btn-success">✅ Add Department</button>
+            <a asp-action="Index" class="btn btn-secondary">🔙 Back</a>
+        </form>
+    </div>
+</div>

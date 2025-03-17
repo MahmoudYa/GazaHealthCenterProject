@@ -1,0 +1,33 @@
+@using GazaHealthCenter_2.Objects.Views.Advertisement
+@model AdvertisementView
+
+@{
+    ViewData["Title"] = "Edit Post";
+}
+
+<h2>تعديل الإعلان</h2>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label>العنوان</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>المحتوى</label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>تحميل صورة أو فيديو جديد</label>
+        <input asp-for="MediaFile" type="file" class="form-control" />
+        <span asp-validation-for="MediaFile" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+    <a asp-action="Index" class="btn btn-secondary">إلغاء</a>
+</form>

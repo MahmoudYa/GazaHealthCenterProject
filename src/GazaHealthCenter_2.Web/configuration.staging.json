@@ -1,0 +1,13 @@
+{
+    "Cookies": {
+        "Antiforgery": ".GazaHealthCenter_2-Stage-Token",
+        "Auth": ".GazaHealthCenter_2-Stage-Auth",
+        "TempData": ".GazaHealthCenter_2-Stage-Temp",
+        "Session": ".GazaHealthCenter_2-Stage-Session"
+    },
+    "Logging": {
+        "LogLevel": {
+            "Default": "Warning"
+        }
+    }
+}

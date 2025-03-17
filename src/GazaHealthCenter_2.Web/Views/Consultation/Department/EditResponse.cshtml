@@ -1,0 +1,28 @@
+@using GazaHealthCenter_2.Objects.Models.Consultation
+@model ConsultationResponseModel
+
+<div class="container mt-4">
+    <h2 class="mb-4">Edit Consultation Response</h2>
+
+    <div class="card shadow p-4">
+        <form asp-action="EditResponse" method="post">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ConsultationRequestId" />
+
+            <div class="mb-3">
+                <label class="form-label">Doctor</label>
+                <select asp-for="DoctorId" class="form-select" asp-items="ViewBag.Doctors" required>
+                    <option value="">Select a Doctor</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Response</label>
+                <textarea asp-for="ResponseText" class="form-control" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">✅ Save Changes</button>
+            <a asp-action="Responses" asp-route-id="@Model.ConsultationRequestId" class="btn btn-secondary">🔙 Back</a>
+        </form>
+    </div>
+</div>

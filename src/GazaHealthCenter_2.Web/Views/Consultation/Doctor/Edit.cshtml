@@ -1,0 +1,39 @@
+@using GazaHealthCenter_2.Objects.Models.Consultation
+@model DoctorModel
+@{
+    var departments = ViewBag.Departments as List<DepartmentModel>;
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Edit Doctor</h2>
+
+    <div class="card shadow p-4">
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label class="form-label">Doctor Name</label>
+                <input type="text" asp-for="Name" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Specialization</label>
+                <input type="text" asp-for="Specialty" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Department</label>
+                <select asp-for="DepartmentId" class="form-select" required>
+                    <option value="">Select Department</option>
+                    @foreach (var department in departments)
+                    {
+                        <option value="@department.Id" selected="@(department.Id == Model.DepartmentId ? "selected" : null)">@department.Name</option>
+                    }
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">✅ Save Changes</button>
+            <a asp-action="Index" class="btn btn-secondary">🔙 Back</a>
+        </form>
+    </div>
+</div>

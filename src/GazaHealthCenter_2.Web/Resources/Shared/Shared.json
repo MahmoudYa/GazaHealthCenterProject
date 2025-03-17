@@ -1,0 +1,69 @@
+{
+    "Areas": {
+        "Administration": "Administration"
+    },
+    "Controllers": {
+        "Administration/Accounts": "Accounts",
+        "Administration/Roles": "Roles",
+        "Advertisement/Advertisement": "Advertisement",
+        "MedicalLocation/MedicalLocation": "MedicalLocation",
+        "Consultation/Doctor": "Doctor",
+        "Consultation/Department": "Department",
+        "PsychologicalSession/PsychologicalSession": "PsychologicalSession",
+
+        "Auth": "Authorization",
+        "Home": "Home",
+        "Lookup": "Lookup",
+        "Profile": "Profile"
+    },
+    "Actions": {
+        "Copy": "Copy",
+        "Create": "Create",
+        "Delete": "Delete",
+        "Details": "Details",
+        "Edit": "Edit",
+        "Home": "Home",
+        "Index": "Index",
+        "Language": "Language",
+        "Login": "Login",
+        "Logout": "Logout",
+        "Profile": "Profile",
+        "Recover": "Recover",
+        "Search": "Search",
+        "Submit": "Submit",
+        "Hospitals": "Hospitals",
+        "MedicalPoints": "MedicalPoints",
+        "HealthCenters": "HealthCenters",
+        "Pharmacies": "Pharmacies",
+        "DetailsHospitals": "DetailsHospitals",
+        "DetailsHealthCenters": "DetailsHealthCenters",
+        "DetailsMedicalPoints": "DetailsMedicalPoints",
+        "DetailsPharmacies": "DetailsPharmacies",
+        "ShowDoctors": "ShowDoctors",
+        "Consultations": "Consultations",
+        "CreateConsultation": "CreateConsultation",
+        "CreateConsultationShow": "CreateConsultationShow",
+        "EditConsultation": "EditConsultation",
+        "EditResponse": "EditResponse",
+        "Respond": "Respond",
+        "Responses": "Responses",
+        "ShowDepartment": "ShowDepartment",
+        "ConsultationsShow": "ConsultationsShow",
+        "ResponsesShow": "Responses",
+        "DeleteConsultation": "DeleteConsultation",
+        "DeleteResponse": "DeleteResponse",
+        "AboutUs": "AboutUs",
+        "Book": "Book",
+        "CancelBooking": "CancelBooking"
+
+    },
+    "Strings": {
+        "All": "All",
+        "LostPassword": "Lost password?",
+        "No": "No",
+        "NoDataFound": "No data found",
+        "PageNotFound": "The page you are looking for does not exist",
+        "SystemError": "Your request resulted in an unexpected system failure, please report this trace id: {0}",
+        "Yes": "Yes"
+    }
+}

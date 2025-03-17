@@ -1,0 +1,40 @@
+@using GazaHealthCenter_2.Objects.Models.Consultation
+@model List<DepartmentModel>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Medical Departments</h2>
+
+    <a asp-action="Create" class="btn btn-success mb-3">➕ Add New Department</a>
+
+    <div class="row">
+        @foreach (var department in Model)
+        {
+                <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="card shadow-sm h-100 d-flex flex-column">
+                    @if (!string.IsNullOrEmpty(department.ImageUrl))
+                    {
+                                <img src="~/uploads/@System.IO.Path.GetFileName(department.ImageUrl)"
+                                     class="card-img-top w-100"
+                                     style="height: 200px; object-fit: cover;"
+                                     alt="Department Image">
+                    }
+                        <div class="card-body d-flex flex-column flex-grow-1 text-center">
+                            <h5 class="card-title">@department.Name</h5>
+                            <p class="text-muted text-truncate" style="min-height: 60px;">
+                            @department.Description
+                            </p>
+                            <div class="mt-auto">
+                                <a asp-action="Consultations" asp-route-id="@department.Id" class="btn btn-primary w-100">
+                                    🏥 Contact for Consultation
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@department.Id" class="btn btn-warning w-100 mt-2">✏️ Edit</a>
+                                <form asp-action="Delete" asp-route-id="@department.Id" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-danger w-100 mt-2" onclick="return confirm('Are you sure?');">🗑 Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        }
+    </div>
+</div>

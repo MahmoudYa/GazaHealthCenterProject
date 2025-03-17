@@ -1,0 +1,21 @@
+@using GazaHealthCenter_2.Objects.Models.Consultation
+@model ConsultationRequestModel
+
+<div class="container mt-4">
+    <h2 class="mb-4">Edit Consultation Request</h2>
+
+    <div class="card shadow p-4">
+        <form asp-action="EditConsultation" method="post">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="DepartmentId" />
+
+            <div class="mb-3">
+                <label class="form-label">Consultation Question</label>
+                <textarea asp-for="Question" class="form-control" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">✅ Save Changes</button>
+            <a asp-action="Consultations" asp-route-id="@Model.DepartmentId" class="btn btn-secondary">🔙 Back</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+@using GazaHealthCenter_2.Objects.Models.MedicalLocation
+
+@model MedicalLocationModel
+
+<h2>Edit Details Medical Location</h2>
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="ImageUrl" /> 
+
+    <div class="form-group">
+        <label>Location Name</label>
+        <input asp-for="Name" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Location Type</label>
+        <select asp-for="Type" class="form-select" required>
+            <option value="Hospital">Hospital</option>
+            <option value="HealthCenter">Health Center</option>
+            <option value="MedicalPoint">Medical Point</option>
+            <option value="Pharmacy">Pharmacy</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        <input asp-for="Address" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input asp-for="PhoneNumber" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Website</label>
+        <input asp-for="Website" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input asp-for="Email" type="email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Google Maps Url</label>
+        <input asp-for="GoogleMapsUrl" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Current Image</label>
+        <div>
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="~/uploads/@System.IO.Path.GetFileName(Model.ImageUrl)" class="img-thumbnail" style="width: 150px; height: 150px; object-fit: cover;" alt="الصورة الحالية">
+            }
+            else
+            {
+                <p>Not Found Image</p>
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Upload New Image (Optinal)</label>
+        <input type="file" name="ImageFile" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-warning">Edit</button>
+</form>
+
+<div class="card-footer">
+    <a asp-action="Index" class="btn btn-secondary">Back List</a>
+</div>

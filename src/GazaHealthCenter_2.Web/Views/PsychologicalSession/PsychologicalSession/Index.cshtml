@@ -1,0 +1,63 @@
+@model List<GazaHealthCenter_2.Objects.Models.PsychologicalSession.PsychologicalSessionModel>
+
+<h2 class="mb-4">Psychological support sessions</h2>
+<div class="container mt-5">
+
+    @foreach (var session in Model)
+    {
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">@session.PsychologistName</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@session.SessionDate.ToString("yyyy-MM-dd HH:mm")</h6>
+                <p class="card-text">@session.Notes</p>
+
+                @if (session.IsBooked)
+                {
+                    <div class="alert alert-warning">
+                        <strong>Reserved by:</strong> @session.PatientName <br />
+                        <strong>WhatsApp No:</strong> @session.PatientWhatsApp <br />
+                        <strong>Patient Notes:</strong> @session.PatientNotes
+                    </div>
+
+                    <form asp-action="CancelBooking" method="post" class="mb-2">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@session.Id" />
+                        <button type="submit" class="btn btn-warning">cancellation of reservation</button>
+                    </form>
+                }
+                else
+                {
+                    <form asp-action="Book" method="post" class="mb-2">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@session.Id" />
+
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" name="patientName" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">WhatsApp No</label>
+                            <input type="text" name="whatsappNumber" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Additional notes</label>
+                            <textarea name="otherNotes" class="form-control"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">cancellation of reservation</button>
+                    </form>
+                }
+
+                <div class="d-flex justify-content-end">
+
+                    <form asp-action="Delete" method="post" onsubmit="return confirm('هل أنت متأكد أنك تريد حذف هذه الجلسة؟');">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@session.Id" />
+                        <button type="submit" class="btn btn-outline-danger">🗑️ Delete</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>

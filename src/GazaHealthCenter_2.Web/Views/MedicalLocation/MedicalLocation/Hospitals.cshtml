@@ -1,0 +1,43 @@
+@using GazaHealthCenter_2.Objects.Models.MedicalLocation
+
+@model List<MedicalLocationModel>
+
+@{
+    ViewData["Title"] = "Hospitals";
+}
+
+<div class="container-fluid">
+    <div class="row" id="locationsList">
+        @foreach (var location in Model.Where(l => l.Type == MedicalLocationType.Hospital))
+        {
+            <div class="col-12">
+                <div class="card h-100 d-flex flex-row align-items-center p-3 w-100">
+                    <div class="col-auto p-2 d-flex align-items-center">
+                        <a asp-action="DetailsHospitals" asp-route-id="@location.Id" class="text-decoration-none">
+                            <img src="~/uploads/@System.IO.Path.GetFileName(location.ImageUrl)"
+                                 class="img-fluid rounded"
+                                 style="width: 100px; height: 100px; object-fit: cover;"
+                                 alt="صورة المستشفى">
+                        </a>
+                    </div>
+                    <div class="col text-center d-flex align-items-center justify-content-center flex-grow-1">
+                        <h4 class="card-title mb-0">
+                            <a asp-action="DetailsHospitals" asp-route-id="@location.Id" class="text-decoration-none text-dark">
+                                <div>
+                                    @location.Name
+                                </div>
+                                <div>
+                                    @location.Address
+                                </div>
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="col-auto d-flex flex-column align-items-end gap-2">
+                        <a href="@location.GoogleMapsUrl" class="btn btn-primary w-100" target="_blank">Show Map</a>
+                        
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

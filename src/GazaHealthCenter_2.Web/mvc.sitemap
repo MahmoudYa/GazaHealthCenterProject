@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<siteMap>
+    <siteMapNode icon="fa fa-home" controller="Home" action="Index">
+        <siteMapNode icon="fa fa-search" action="NotFound" />
+        <siteMapNode icon="fa fa-ban" action="Error" />
+        <siteMapNode icon="fa fa-info-circle" action="AboutUs" />
+        <siteMapNode icon="fa fa-user-circle" controller="Profile" action="Edit" />
+        <siteMapNode icon="fa fa-user-times" controller="Profile" action="Delete" />
+        <siteMapNode menu="true" icon="fa fa-cogs" area="Administration">
+            <siteMapNode menu="true" icon="fa fa-user" controller="Accounts" action="Index">
+                <siteMapNode icon="far fa-file" action="Create" />
+                <siteMapNode icon="fa fa-info" action="Details" />
+                <siteMapNode icon="fa fa-pencil-alt" action="Edit" />
+            </siteMapNode>
+            <siteMapNode menu="true" icon="fa fa-users" controller="Roles" action="Index">
+                <siteMapNode icon="far fa-file" action="Create" />
+                <siteMapNode icon="fa fa-info" action="Details" />
+                <siteMapNode icon="fa fa-pencil-alt" action="Edit" />
+                <siteMapNode icon="fa fa-times" action="Delete" />
+            </siteMapNode>
+        </siteMapNode>
+        
+        <siteMapNode menu="false" icon="fa fa-newspaper" area="Advertisement">
+            <siteMapNode menu="true" icon="fa fa-newspaper" controller="Advertisement" action="Index">
+                <siteMapNode icon="far fa-file" action="Create" />
+                <siteMapNode icon="fa fa-pencil-alt" action="Edit" />
+                <siteMapNode icon="fa fa-pencil-alt" action="Delete" />
+            </siteMapNode>
+        </siteMapNode>
+
+        <siteMapNode menu="true" icon="fa fa-map-marker" area="MedicalLocation">
+            <siteMapNode menu="true" icon="fa fa-user-md" controller="MedicalLocation" action="Index">
+                <siteMapNode icon="far fa-file" action="Create" />
+                <siteMapNode icon="fa fa-pencil-alt" action="Edit" />
+                <siteMapNode icon="fa fa-pencil-alt" action="Delete" />
+                <siteMapNode icon="fa fa-info" action="Details" />
+            </siteMapNode>
+            <siteMapNode menu="true" icon="fa fa-hospital" controller="MedicalLocation" action="Hospitals">
+                <siteMapNode icon="fa fa-info" action="DetailsHospitals" />
+            </siteMapNode>
+            <siteMapNode menu="true" icon="fa fa-clinic-medical" controller="MedicalLocation" action="HealthCenters">
+                <siteMapNode icon="fa fa-info" action="DetailsHealthCenters" />
+            </siteMapNode>
+            <siteMapNode menu="true" icon="fa fa-medkit" controller="MedicalLocation" action="MedicalPoints">
+                <siteMapNode icon="fa fa-info" action="DetailsMedicalPoints" />
+            </siteMapNode>
+            <siteMapNode menu="true" icon="fa fa-prescription-bottle-alt" controller="MedicalLocation" action="Pharmacies">
+                <siteMapNode icon="fa fa-info" action="DetailsPharmacies" />
+            </siteMapNode>
+            
+        </siteMapNode>
+
+        <siteMapNode menu="true" icon="fa fa-stethoscope" area="Consultation">
+            
+            <!-- Department Section -->
+            <siteMapNode menu="true" icon="fa fa-building" controller="Department" action="Index">
+                <siteMapNode icon="far fa-file" action="Create" />
+                <siteMapNode icon="fa fa-edit" action="Edit" />
+                <siteMapNode icon="fa fa-trash" action="Delete" />
+                <siteMapNode icon="fa fa-list" action="Consultations" />
+                <siteMapNode icon="fa fa-plus" action="CreateConsultation" />
+                <siteMapNode icon="fa fa-pencil-alt" action="EditConsultation" />
+                <siteMapNode icon="fa fa-comments" action="EditResponse" />
+                <siteMapNode icon="fa fa-reply" action="Respond" />
+                <siteMapNode icon="fa fa-times" action="DeleteResponse" />
+                <siteMapNode icon="fa fa-comments" action="Responses" />
+                <siteMapNode icon="fa fa-trash-alt" action="DeleteConsultation" />
+            </siteMapNode>
+
+            <!-- Show Department Section -->
+            <siteMapNode menu="true" icon="fa fa-hospital" controller="Department" action="ShowDepartment">
+                <siteMapNode icon="fa fa-list" action="ConsultationsShow" />
+                <siteMapNode icon="fa fa-plus-circle" action="CreateConsultationShow" />
+                <siteMapNode icon="fa fa-comments" action="ResponsesShow" />
+            </siteMapNode>
+
+            <!-- Doctor Section -->
+            <siteMapNode menu="true" icon="fa fa-user-md" controller="Doctor" action="Index">
+                <siteMapNode icon="far fa-file" action="Create" />
+                <siteMapNode icon="fa fa-user-edit" action="Edit" />
+                <siteMapNode icon="fa fa-trash-alt" action="Delete" />
+            </siteMapNode>
+
+            <!-- Show Doctors Section -->
+            <siteMapNode menu="true" icon="fa fa-hospital-user" controller="Doctor" action="ShowDoctors">
+
+            </siteMapNode>
+        </siteMapNode>
+
+        <siteMapNode menu="true" icon="fa fa-brain" area="PsychologicalSession">
+            <siteMapNode menu="true" icon="fa fa-user-md" controller="PsychologicalSession" action="Index">
+                <siteMapNode icon="fa fa-trash-alt" action="Delete" />
+                <siteMapNode icon="fa fa-calendar-check" action="Book" />
+                <siteMapNode icon="fa fa-times-circle" action="CancelBooking" />
+            </siteMapNode>
+            <siteMapNode menu="true" icon="fa fa-plus-circle" controller="PsychologicalSession" action="Create">
+            </siteMapNode>
+        </siteMapNode>
+
+
+
+    </siteMapNode>
+</siteMap>

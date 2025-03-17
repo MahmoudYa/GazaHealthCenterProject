@@ -1,0 +1,43 @@
+@using GazaHealthCenter_2.Objects.Models.Consultation
+@model DepartmentModel
+
+<div class="container mt-4">
+    <h2 class="mb-4">Edit Department</h2>
+
+    <div class="card shadow p-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label class="form-label">Department Name</label>
+                <input type="text" asp-for="Name" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea asp-for="Description" class="form-control" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Current Image</label>
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                {
+                    <div class="mb-2">
+                        <img src="~/uploads/@System.IO.Path.GetFileName(Model.ImageUrl)"
+                             class="img-thumbnail"
+                             style="max-width: 200px; height: auto;"
+                             alt="Department Image">
+                    </div>
+                }
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Upload New Image (Optional)</label>
+                <input type="file" name="ImageFile" class="form-control" accept="image/*" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">✅ Save Changes</button>
+            <a asp-action="Index" class="btn btn-secondary">🔙 Back</a>
+        </form>
+    </div>
+</div>

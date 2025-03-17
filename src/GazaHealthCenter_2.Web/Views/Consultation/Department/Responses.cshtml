@@ -1,0 +1,32 @@
+@using GazaHealthCenter_2.Objects.Models.Consultation
+@model List<ConsultationResponseModel>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Consultation Responses</h2>
+
+    <div class="list-group">
+        @foreach (var response in Model)
+        {
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <p class="mb-1">💬 @response.ResponseText</p>
+                    <small class="text-muted">👨‍⚕️ Doctor: @response.Doctor.Name | 📅 Date: @response.ResponseDate</small>
+                </div>
+                <div>
+                    <a asp-action="EditResponse" asp-route-id="@response.Id" class="btn btn-warning btn-sm">
+                        ✏️
+                    </a>
+                    <form asp-action="DeleteResponse" asp-route-id="@response.Id" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this response?');">
+                            🗑
+                        </button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+
+    <a asp-action="Respond" asp-route-id="@ViewBag.ConsultationId" class="btn btn-primary mt-3">
+        ➕ Add a Reply
+    </a>
+</div>

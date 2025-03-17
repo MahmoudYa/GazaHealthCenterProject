@@ -1,0 +1,50 @@
+@using GazaHealthCenter_2.Objects.Models.Advertisment
+@model List<AdvertisementModel>
+
+@{
+    ViewData["Title"] = "الإعلانات";
+}
+
+<h2 class="mb-4">Publications</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Add New Post</a>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<div class="container">
+    @foreach (var ad in Model)
+    {
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h4 class="card-title">@ad.Title</h4>
+                <p class="card-text">@ad.Content</p>
+
+                @if (!string.IsNullOrEmpty(ad.MediaUrl))
+                {
+                    if (ad.MediaUrl.EndsWith(".mp4") || ad.MediaUrl.EndsWith(".avi"))
+                    {
+                        <video class="img-fluid" controls>
+                            <source src="~/uploads/@System.IO.Path.GetFileName(ad.MediaUrl)" type="video/mp4">
+                        </video>
+                    }
+                    else
+                    {
+                        <img src="~/uploads/@System.IO.Path.GetFileName(ad.MediaUrl)" class="img-fluid rounded" />
+                    }
+                }
+
+                <div class="mt-3 text-muted">تم النشر في: @ad.DatePosted.ToShortDateString()</div>
+
+                <div class="mt-3 d-flex">
+                    <a asp-action="Edit" asp-route-id="@ad.Id" class="btn btn-warning me-2">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@ad.Id" method="post" onsubmit="return confirm('You Are Sure?')">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>

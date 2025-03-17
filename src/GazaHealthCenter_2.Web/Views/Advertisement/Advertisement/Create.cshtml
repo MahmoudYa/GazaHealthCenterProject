@@ -1,0 +1,30 @@
+@using GazaHealthCenter_2.Objects.Views.Advertisement
+@model AdvertisementView
+
+@{
+    ViewData["Title"] = "Add New Post";
+}
+
+<h2>Add New Post</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Title</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Contain</label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Upload</label>
+        <input asp-for="MediaFile" type="file" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Sava</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

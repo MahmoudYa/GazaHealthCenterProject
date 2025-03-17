@@ -1,0 +1,29 @@
+@using GazaHealthCenter_2.Objects.Models.Consultation
+@model List<DoctorModel>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Doctors List</h2>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Specialization</th>
+                    <th>Department</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var doctor in Model)
+                {
+                    <tr>
+                        <td>@doctor.Name</td>
+                        <td>@doctor.Specialty</td>
+                        <td>@doctor.Department.Name</td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

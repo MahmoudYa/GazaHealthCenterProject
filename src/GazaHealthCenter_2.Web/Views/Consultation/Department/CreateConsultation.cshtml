@@ -1,0 +1,23 @@
+@using GazaHealthCenter_2.Objects.Models.Consultation
+@model ConsultationRequestModel
+
+<div class="container mt-4">
+    <h2 class="mb-4">Request a Consultation</h2>
+
+    <div class="card shadow p-4">
+        <form asp-action="CreateConsultation" asp-route-departmentId="@Model.DepartmentId" method="post">
+            <div class="mb-3">
+                <label class="form-label">Your Question</label>
+                <textarea asp-for="Question" class="form-control" placeholder="Describe your concern..." required></textarea>
+                <span asp-validation-for="Question" class="text-danger"></span>
+            </div>
+
+            <div class="form-check mb-3">
+                <input type="checkbox" asp-for="IsPublic" class="form-check-input" id="publicCheck" />
+                <label class="form-check-label" for="publicCheck">Make the consultation public</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">📩 Send Consultation</button>
+        </form>
+    </div>
+</div>

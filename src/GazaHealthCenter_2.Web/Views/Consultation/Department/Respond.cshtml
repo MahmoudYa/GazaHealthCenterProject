@@ -1,0 +1,28 @@
+@using GazaHealthCenter_2.Objects.Models.Consultation
+@model ConsultationResponseModel
+
+<div class="container mt-4">
+    <h2 class="mb-4">Respond to Consultation</h2>
+
+    <div class="card shadow p-4">
+        <form asp-action="Respond" asp-controller="Department" asp-route-id="@Model.ConsultationRequestId" method="post">
+            <input type="hidden" asp-for="ConsultationRequestId" />
+
+            <div class="mb-3">
+                <label class="form-label">Choose Doctor</label>
+                <select asp-for="DoctorId" asp-items="ViewBag.Doctors" class="form-select" required>
+                    <option value="">-- Select a Doctor --</option>
+                </select>
+                <span asp-validation-for="DoctorId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Response</label>
+                <textarea asp-for="ResponseText" class="form-control" placeholder="Write your response..." required></textarea>
+                <span asp-validation-for="ResponseText" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">📩 Send Reply</button>
+        </form>
+    </div>
+</div>

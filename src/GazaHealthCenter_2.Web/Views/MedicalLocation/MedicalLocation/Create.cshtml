@@ -1,0 +1,44 @@
+@using GazaHealthCenter_2.Objects.Models.MedicalLocation
+@model MedicalLocationModel
+
+<h2>Add New Medical Location</h2>
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Location Name</label>
+        <input asp-for="Name" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Location Type</label>
+        <select asp-for="Type" class="form-select" required>
+            <option value="Hospital">Hospital</option>
+            <option value="HealthCenter">Health Center</option>
+            <option value="MedicalPoint">Medical Point</option>
+            <option value="Pharmacy">Pharmacy</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        <input asp-for="Address" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input asp-for="PhoneNumber" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Website</label>
+        <input asp-for="Website" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input asp-for="Email" type="email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Google Maps Url</label>
+        <input asp-for="GoogleMapsUrl" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Image</label>
+        <input type="file" name="ImageFile" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success">Add</button>
+</form>

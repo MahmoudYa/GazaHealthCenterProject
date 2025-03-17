@@ -1,0 +1,20 @@
+@using GazaHealthCenter_2.Objects.Models.Consultation
+@model List<ConsultationResponseModel>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Consultation Responses</h2>
+
+    <div class="list-group">
+        @foreach (var response in Model)
+        {
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <p class="mb-1">💬 @response.ResponseText</p>
+                    <small class="text-muted">👨‍⚕️ Doctor: @response.Doctor.Name | 📅 Date: @response.ResponseDate</small>
+                </div>
+                
+            </div>
+        }
+    </div>
+
+</div>

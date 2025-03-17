@@ -1,0 +1,25 @@
+@using GazaHealthCenter_2.Objects.Models.MedicalLocation
+
+@model MedicalLocationModel
+
+@{
+    ViewData["Title"] = "Details Medical Location";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3>@Model.Name</h3>
+        </div>
+        <div class="card-body">
+            <img src="~/uploads/@System.IO.Path.GetFileName(Model.ImageUrl)" class="img-fluid rounded mb-3" style="width: 150px; height: 150px; object-fit: cover;" alt="صورة الموقع">
+            <p><strong>Address:</strong> @Model.Address</p>
+            <p><strong>Phone Number:</strong> @Model.PhoneNumber</p>
+            <p><strong>Website:</strong> <a href="@Model.Website" target="_blank">@Model.Website</a></p>
+            <p><strong>Email:</strong> <a href="mailto:@Model.Email">@Model.Email</a></p>
+            <p><strong>Location Type:</strong> @Model.Type</p>
+            <p><strong>Google Maps Url:</strong> <a href="@Model.GoogleMapsUrl" class="btn btn-link" target="_blank">Show Map</a></p>
+        </div>
+
+    </div>
+</div>
